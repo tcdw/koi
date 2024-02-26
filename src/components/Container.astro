@@ -1,0 +1,13 @@
+---
+interface Props {
+    defaultPadding: boolean
+}
+
+const { defaultPadding } = Astro.props;
+---
+
+<div class="flex justify-center -mt-32 z-10 relative md:px-4 xl:px-0 xl:gap-4">
+    <main class={`bg-white bg-opacity-70 dark:bg-gray-950 dark:bg-opacity-70 w-full max-w-4xl md:rounded-3xl backdrop-blur-xl ${defaultPadding ? "p-5 md:p-6" : ""}`}>
+        <slot></slot>
+    </main>
+</div>

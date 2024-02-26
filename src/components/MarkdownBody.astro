@@ -1,0 +1,22 @@
+---
+import { twMerge } from 'tailwind-merge';
+
+interface Props {
+    class?: string
+}
+
+const { class: ClassName = "" } = Astro.props;
+---
+
+<div class={twMerge(`prose prose-slate dark:prose-invert max-w-none
+            prose-a:no-underline prose-a:border-accent-200 dark:prose-a:border-accent-900 prose-a:border-b-2 prose-a:border-dashed
+            prose-a:text-accent-600 dark:prose-a:text-accent-400
+            hover:prose-a:border-accent-300 dark:hover:prose-a:border-accent-700 hover:prose-a:bg-accent-100
+            dark:hover:prose-a:bg-accent-950 prose-a:transition-colors
+            prose-img:rounded-lg
+            prose-thead:border-b-2
+            prose-th:text-base prose-th:leading-8
+            prose-td:text-base prose-td:leading-8
+            prose-li:my-0.5`, ClassName)}>
+    <slot />
+</div>

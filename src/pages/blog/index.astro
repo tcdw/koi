@@ -1,0 +1,14 @@
+---
+import { filterPosts } from "@/utils/misc";
+import { getCollection } from 'astro:content';
+import BlogPostList from "@/layouts/BlogPostList.astro";
+import { BLOG_PAGINATION_SIZE } from "@/consts";
+
+const posts = filterPosts(await getCollection('blog'), {
+    filterDraft: true,
+    filterUnlisted: true,
+});
+const latestPosts = posts.slice(0, BLOG_PAGINATION_SIZE);
+---
+
+<BlogPostList data={latestPosts} currentPage={1} lastPage={Math.ceil(posts.length / BLOG_PAGINATION_SIZE)} />

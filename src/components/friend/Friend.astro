@@ -1,0 +1,25 @@
+---
+interface Props {
+    tagName?: string
+    url: string
+    avatarUrl?: string
+    name: string
+    description?: string
+}
+
+const { tagName: LinkWrapper = "li", url, avatarUrl, name, description } = Astro.props;
+---
+
+<LinkWrapper>
+    <a target="_blank" href={url} class="grid grid-cols-[4rem_1fr] grid-rows-[2rem_2rem] gap-[0_1.25rem] text-inherit no-underline text-primary-500 dark:text-primary-500 transition-colors hover:no-underline hover:text-primary-300 dark:hover:text-primary-300">
+        <div class="row-[span_2]">
+            {avatarUrl ? (
+                    <img loading="lazy" src={avatarUrl} alt={name + " 的头像"} class="block size-16 bg-white object-cover rounded-xl">
+            ) : (
+                    <div class="block size-16 bg-black/30 dark:bg-white/30 object-cover rounded-xl"></div>
+            )}
+        </div>
+        <p class="text-xl leading-[2rem] overflow-hidden text-ellipsis whitespace-nowrap m-0">{name}</p>
+        <aside class="text-base leading-[2rem] text-black dark:text-white opacity-60 overflow-hidden text-ellipsis whitespace-nowrap">{description}</aside>
+    </a>
+</LinkWrapper>

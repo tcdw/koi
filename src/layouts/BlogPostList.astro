@@ -1,0 +1,63 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Container from "../components/Container.astro";
+import ArticleListItem from "../components/ArticleListItem.astro";
+import removeMarkdown from "../utils/vendors/markdown-to-text";
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+    data: CollectionEntry<'blog'>[]
+    currentPage: number
+    lastPage: number
+    largeBanner?: boolean
+}
+
+const { data, currentPage, lastPage, largeBanner = false } = Astro.props;
+---
+
+<BaseLayout>
+    <BaseHead slot="head" title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <Header largeBanner={largeBanner} />
+    <Container defaultPadding={true}>
+        <div class="-mt-10">
+            {data.map((post) => {
+                let excerpt = post.data.description || removeMarkdown(post.body);
+                if (excerpt.length > 200) {
+                    excerpt = excerpt.slice(0, 200) + "...";
+                }
+                return (
+                        <ArticleListItem
+                                title={post.data.title}
+                                url={`./post/${post.slug}/`}
+                                date={post.data.pubDate}>
+                            {excerpt}
+                        </ArticleListItem>
+                );
+            })}
+        </div>
+        <div class="flex justify-between mt-8 h-12 relative">
+            {(currentPage > 1) ? <a
+                    href={`./blog/${currentPage - 1}`}
+                    class="rounded-full bg-primary-700 px-6 py-3 text-base
+                    font-semibold text-white shadow-sm hover:bg-primary-500 transition-colors
+                    focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600"
+            >
+                上一页
+            </a> : <div aria-hidden="true"></div>}
+            <div class="text-black dark:text-white absolute -translate-x-2/4 -translate-y-2/4 left-2/4 top-2/4">{currentPage} / {lastPage}</div>
+            {(currentPage < lastPage) ? <a
+                    href={`./blog/${currentPage + 1}`}
+                    class="rounded-full bg-primary-700 px-6 py-3 text-base
+                    font-semibold text-white shadow-sm hover:bg-primary-500 transition-colors
+                    focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600"
+            >
+                下一页
+            </a> : <div aria-hidden="true"></div>}
+        </div>
+    </Container>
+    <Footer />
+</BaseLayout>

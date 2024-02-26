@@ -1,0 +1,27 @@
+---
+import BlogPage from "../../layouts/BlogPage.astro";
+import Friend from "../../components/friend/Friend.astro";
+import FriendList from "../../components/friend/FriendList.astro";
+import FriendCategoryTitle from "../../components/friend/FriendCategoryTitle.astro";
+import MarkdownBody from "../../components/MarkdownBody.astro";
+
+import * as markdownData from "./_links.md";
+---
+
+<BlogPage title="链接" description="来看看我的小伙伴们吧！">
+    <FriendCategoryTitle>链接分类</FriendCategoryTitle>
+    <FriendList>
+        <Friend url="https://www.tcdw.net" name="吐槽大王部落格" description="本 Astro 博客主题的作者" avatarUrl="https://secure.gravatar.com/avatar/70ae2023afad30dae905344325cece8f?s=140" />
+        <Friend url="https://example.com" name="测试链接" description="这是一个测试链接" />
+        <Friend url="https://example.com" name="测试链接" description="这是一个测试链接" />
+    </FriendList>
+    <FriendCategoryTitle>链接分类之二</FriendCategoryTitle>
+    <FriendList>
+        <Friend url="https://www.tcdw.net" name="吐槽大王部落格" description="本 Astro 博客主题的作者" avatarUrl="https://secure.gravatar.com/avatar/70ae2023afad30dae905344325cece8f?s=140" />
+        <Friend url="https://example.com" name="测试链接" description="这是一个测试链接" />
+        <Friend url="https://example.com" name="测试链接" description="这是一个测试链接" />
+    </FriendList>
+    <MarkdownBody class="mt-6">
+        <markdownData.Content />
+    </MarkdownBody>
+</BlogPage>

@@ -1,0 +1,16 @@
+---
+import {SITE_LANGUAGE} from "../consts";
+---
+
+<!doctype html>
+<html lang={SITE_LANGUAGE}>
+<head>
+    <slot name="head"></slot>
+</head>
+<body class="dark:bg-gray-950">
+<slot />
+</body>
+</html>
+
+<style is:global>
+</style>

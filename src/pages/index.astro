@@ -1,0 +1,22 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Container from "../components/Container.astro";
+import MarkdownBody from "../components/MarkdownBody.astro";
+
+import * as markdownData from "./_index.md";
+---
+
+<BaseLayout>
+	<BaseHead slot="head" title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	<Header largeBanner={true} />
+	<Container defaultPadding={true}>
+		<MarkdownBody class="py-2">
+			<markdownData.Content />
+		</MarkdownBody>
+	</Container>
+	<Footer />
+</BaseLayout>

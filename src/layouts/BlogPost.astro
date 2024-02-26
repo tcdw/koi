@@ -1,0 +1,35 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import BaseLayout from "./BaseLayout.astro";
+import Container from "../components/Container.astro";
+import MarkdownBody from "../components/MarkdownBody.astro";
+
+type Props = CollectionEntry<'blog'>['data'];
+
+const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+---
+
+<BaseLayout>
+	<BaseHead slot="head" title={title} description={description} image={heroImage} />
+	<Header />
+	<Container defaultPadding={true}>
+		<div class="mb-8">
+			<article class="text-black dark:text-white">
+				<h2 class="text-3xl font-bold leading-normal">{title}</h2>
+				<div class="mt-4">
+					<FormattedDate class="opacity-60" date={pubDate} />
+					{updatedDate && <span class="opacity-60">(Last updated on <FormattedDate date={pubDate}/>)</span>}
+				</div>
+				<MarkdownBody class="mt-6">
+					<slot />
+				</MarkdownBody>
+			</article>
+		</div>
+		<slot name="comment" />
+	</Container>
+	<Footer />
+</BaseLayout>

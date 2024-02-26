@@ -1,0 +1,65 @@
+---
+import {
+	SITE_AUTHOR_AVATAR,
+	SITE_DESCRIPTION,
+	SITE_HEAD_IMAGE_DAY,
+	SITE_HEAD_IMAGE_NIGHT,
+	SITE_TITLE
+} from "../consts";
+import HeaderNav from "./HeaderNav.svelte";
+import { Image } from "astro:assets";
+
+interface Props {
+	largeBanner?: boolean;
+}
+
+const {largeBanner} = Astro.props;
+
+// 头图尺寸
+const presetSizes = [320, 640, 768, 1024, 1280, 1536, 1920, 2560];
+const imageSizes = presetSizes.map((e) => `(max-width: ${Math.floor(e / 2)}px) ${e}px, `).join('');
+
+// 头图高度 class
+const heightClassName = largeBanner ? "h-[calc(100svh+8rem)]" : "h-[calc(65lvh+8rem)]";
+---
+
+<!-- 顶栏 -->
+<HeaderNav client:load>
+	<Image slot="avatar" class="block w-12 h-12 rounded-full" alt="头像" src={SITE_AUTHOR_AVATAR} width={48} densities={[1, 2, 3]} />
+</HeaderNav>
+
+<!-- 页面头图 -->
+<header id="navBackground"
+		class={`${heightClassName} min-h-[30rem] flex flex-col z-0`}>
+	<!-- 页面头图本体（明亮主题） -->
+	<Image
+		src={SITE_HEAD_IMAGE_DAY}
+		widths={[...presetSizes, SITE_HEAD_IMAGE_DAY.width]}
+		sizes={`${imageSizes}${SITE_HEAD_IMAGE_DAY.width}px`}
+		quality={90}
+		alt="网站横幅图片"
+		class={`block dark:hidden absolute left-0 top-0 w-full ${heightClassName} object-center object-cover -z-10`}
+	/>
+	<!-- 页面头图本体（暗黑主题） -->
+	<Image
+		src={SITE_HEAD_IMAGE_NIGHT}
+		widths={[...presetSizes, SITE_HEAD_IMAGE_NIGHT.width]}
+		sizes={`${imageSizes}${SITE_HEAD_IMAGE_NIGHT.width}px`}
+		quality={90}
+		alt="网站横幅图片"
+		class={`hidden dark:block absolute left-0 top-0 w-full ${heightClassName} object-center object-cover -z-10`}
+	/>
+	<div class="flex-auto relative">
+		{largeBanner ? <div id="navScrollNotice"
+						  aria-hidden="true"
+						  class="absolute h-2 w-16 -translate-x-2/4 left-2/4 bottom-4 bg-white bg-opacity-60 rounded-full transition-all"
+		></div> : null}
+		<div class={`absolute -translate-x-2/4 left-2/4 ${largeBanner ? "bottom-10" : "bottom-6"} w-full max-w-4xl text-white px-5 md:px-6 [filter:drop-shadow(0_20px_13px_rgb(0_0_0_/_0.1))_drop-shadow(0_8px_5px_rgb(0_0_0_/_0.4))]`}>
+			<h1 class="text-4xl leading-normal font-bold">
+				<a href="./">{SITE_TITLE}</a>
+			</h1>
+			<p class="text-base leading-normal mt-1">{SITE_DESCRIPTION}</p>
+		</div>
+	</div>
+	<div aria-hidden="true" class="flex-none h-32 w-full bg-gradient-to-b from-transparent to-white dark:to-gray-950"></div>
+</header>

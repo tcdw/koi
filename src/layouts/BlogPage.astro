@@ -1,0 +1,32 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import BaseLayout from "./BaseLayout.astro";
+import Container from "../components/Container.astro";
+
+type Props = {
+	title: string
+	description?: string
+};
+
+const { title, description = "" } = Astro.props;
+---
+
+<BaseLayout>
+	<BaseHead slot="head" title={title} description={description} />
+	<Header />
+	<Container defaultPadding={true}>
+		<div class="mb-8">
+			<article class="text-black dark:text-white">
+				<h2 class="text-3xl font-bold leading-normal">{title}</h2>
+				<div class="mt-6">
+					<slot />
+				</div>
+			</article>
+		</div>
+
+		<slot name="comment" />
+	</Container>
+	<Footer />
+</BaseLayout>

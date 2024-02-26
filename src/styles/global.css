@@ -1,0 +1,12 @@
+/*! Global CSS */
+
+:root {}
+
+/* Hack: 改善 kbd 间距不够的问题 */
+.prose kbd:has(kbd) {
+    padding: 0.5rem;
+}
+
+.prose kbd {
+    margin: 0 0.125rem;
+}

@@ -1,0 +1,25 @@
+---
+import { getCollection } from 'astro:content';
+import type { Page } from "astro";
+import type { CollectionEntry } from 'astro:content';
+import BlogPostList from "@/layouts/BlogPostList.astro";
+import { BLOG_PAGINATION_SIZE } from "@/consts";
+import {filterPosts} from "../../utils/misc";
+
+interface Props {
+	page: Page<CollectionEntry<'blog'>>
+}
+
+export async function getStaticPaths({ paginate }: { paginate: any }) {
+	const posts = filterPosts(await getCollection('blog'), {
+        filterDraft: true,
+        filterUnlisted: true,
+    });
+
+	return paginate(posts, { pageSize: BLOG_PAGINATION_SIZE });
+}
+
+const { page } = Astro.props;
+---
+
+<BlogPostList data={page.data} currentPage={page.currentPage} lastPage={page.lastPage} />
