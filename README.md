@@ -21,3 +21,9 @@ Koi (こい, 恋) 是由 [tcdw](https://www.tcdw.net) 为他不存在的女儿�
 - [Tailwind CSS](https://tailwindcss.com/) - 原子化的 CSS 框架
 - [Svelte](https://svelte.dev/) - 为网站增加互动元素的轻量级 UI 库
 - [TypeScript](https://www.typescriptlang.org/) - <abbr title="从佐玩官网看到的一句话描述。我觉得这个很妙，抄过来了（">八块腹肌</abbr>的 JavaScript
+
+## 许可证
+
+本模板遵循 MIT 许可证发布。
+
+同时，希望能够保留页面底部的 Based on Koi 字样，谢谢w
