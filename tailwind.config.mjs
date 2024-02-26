@@ -34,9 +34,13 @@ export default {
 				},
 			}
 		},
-		fontFamily: {
+		// 如果需要与「吐槽大王部落格」同款的圆体字体，你可以：
+		// 1. 取消注释下面的 fontFamily 配置
+		// 2. 增加来自 Google Fonts 的 Varela Round 字体
+		// 3. 增加来自 https://github.com/Warren2060/ChillRound 的「寒蝉全圆体」
+		/*fontFamily: {
 			sans: ["'Varela Round'", '"ChillRoundF"', "'-apple-system'", "'Microsoft YaHei'", "sans-serif"]
-		}
+		}*/
 	},
 	plugins: [
 		typography
