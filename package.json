@@ -19,6 +19,7 @@
     "@astrojs/sitemap": "^3.1.1",
     "@astrojs/svelte": "^5.0.3",
     "@astrojs/tailwind": "^5.1.0",
+    "@tailwindcss/typography": "^0.5.10",
     "astro": "^4.4.2",
     "markdown-to-text": "^0.1.1",
     "sharp": "^0.33.2",
@@ -26,8 +27,5 @@
     "tailwind-merge": "^2.2.1",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.3.3"
-  },
-  "devDependencies": {
-    "@tailwindcss/typography": "^0.5.10"
   }
 }
