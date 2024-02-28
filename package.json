@@ -4,6 +4,7 @@
   "version": "1.0.1",
   "author": "tcdw <tcdw2011@gmail.com>",
   "license": "MIT",
+  "private": true,
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
