@@ -23,7 +23,7 @@ const { data, currentPage, lastPage, largeBanner = false } = Astro.props;
     <BaseHead slot="head" title={SITE_TITLE} description={SITE_DESCRIPTION} />
     <Header largeBanner={largeBanner} />
     <Container defaultPadding={true}>
-        <div class="-mt-10">
+        <div class="-mt-10 md:-mt-12">
             {data.map((post) => {
                 let excerpt = post.data.description || removeMarkdown(post.body);
                 if (excerpt.length > 200) {
