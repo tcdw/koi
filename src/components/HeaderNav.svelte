@@ -96,7 +96,7 @@
     });
 </script>
 
-<nav class="fixed w-full top-0 z-20">
+<nav class="fixed w-full top-0 z-10">
     <div id="navBar" class={navBarClassNameBase + " " + navBarClassName} style={`--navBar-height: ${mobileNavHeight}rem`}>
         <div class="flex justify-between md:justify-center items-center gap-8 ps-3 pe-3 py-3">
             <a href="./" class="block flex-none" title="首页">
