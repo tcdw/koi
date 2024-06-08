@@ -7,7 +7,9 @@ const { defaultPadding } = Astro.props;
 ---
 
 <div class="flex justify-center -mt-32 relative md:px-4 xl:px-0 xl:gap-4">
-    <main class={`bg-white bg-opacity-70 dark:bg-gray-950 dark:bg-opacity-70 w-full max-w-4xl md:rounded-3xl backdrop-blur-xl ${defaultPadding ? "p-5 md:p-6" : ""}`}>
+    <!-- bg-white bg-opacity-70 dark:bg-gray-950 dark:bg-opacity-70 md:rounded-3xl backdrop-blur-xl -->
+    <main class={`w-full max-w-4xl relative z-10 ${defaultPadding ? "p-5 md:p-6" : ""}`}>
         <slot></slot>
     </main>
+    <div class="w-full max-w-4xl h-64 absolute bg-white bg-opacity-70 dark:bg-gray-950 dark:bg-opacity-70 md:rounded-3xl backdrop-blur-xl" aria-hidden="true"></div>
 </div>

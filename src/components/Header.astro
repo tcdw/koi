@@ -28,27 +28,10 @@ const heightClassName = largeBanner ? "h-[calc(100svh+8rem)]" : "h-[calc(65lvh+8
 	<Image slot="avatar" class="block w-12 h-12 rounded-full" alt="头像" src={SITE_AUTHOR_AVATAR} width={48} densities={[1, 2, 3]} />
 </HeaderNav>
 
-<!-- 页面头图 -->
+<!-- 页面头部 -->
 <header id="navBackground"
 		class={`${heightClassName} min-h-[30rem] flex flex-col z-0`}>
 	<!-- 页面头图本体（明亮主题） -->
-	<Image
-		src={SITE_HEAD_IMAGE_DAY}
-		widths={[...presetSizes, SITE_HEAD_IMAGE_DAY.width]}
-		sizes={`${imageSizes}${SITE_HEAD_IMAGE_DAY.width}px`}
-		quality={90}
-		alt="网站横幅图片"
-		class={`block dark:hidden absolute left-0 top-0 w-full ${heightClassName} object-center object-cover -z-10`}
-	/>
-	<!-- 页面头图本体（暗黑主题） -->
-	<Image
-		src={SITE_HEAD_IMAGE_NIGHT}
-		widths={[...presetSizes, SITE_HEAD_IMAGE_NIGHT.width]}
-		sizes={`${imageSizes}${SITE_HEAD_IMAGE_NIGHT.width}px`}
-		quality={90}
-		alt="网站横幅图片"
-		class={`hidden dark:block absolute left-0 top-0 w-full ${heightClassName} object-center object-cover -z-10`}
-	/>
 	<div class="flex-auto relative">
 		{largeBanner ? <div id="navScrollNotice"
 						  aria-hidden="true"
@@ -63,3 +46,24 @@ const heightClassName = largeBanner ? "h-[calc(100svh+8rem)]" : "h-[calc(65lvh+8
 	</div>
 	<div aria-hidden="true" class="flex-none h-32 w-full bg-gradient-to-b from-transparent to-white dark:to-gray-950"></div>
 </header>
+
+<!-- 页面头图 -->
+<div class={`w-full ${heightClassName} min-h-[30rem] absolute left-0 top-0 -z-20`} aria-hidden="true">
+	<Image
+		src={SITE_HEAD_IMAGE_DAY}
+		widths={[...presetSizes, SITE_HEAD_IMAGE_DAY.width]}
+		sizes={`${imageSizes}${SITE_HEAD_IMAGE_DAY.width}px`}
+		quality={90}
+		alt="网站横幅图片"
+		class={`block dark:hidden w-full h-full ${heightClassName} object-center object-cover`}
+	/>
+	<!-- 页面头图本体（暗黑主题） -->
+	<Image
+		src={SITE_HEAD_IMAGE_NIGHT}
+		widths={[...presetSizes, SITE_HEAD_IMAGE_NIGHT.width]}
+		sizes={`${imageSizes}${SITE_HEAD_IMAGE_NIGHT.width}px`}
+		quality={90}
+		alt="网站横幅图片"
+		class={`hidden dark:block w-full h-full ${heightClassName} object-center object-cover`}
+	/>
+</div>
