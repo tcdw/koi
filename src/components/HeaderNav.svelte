@@ -3,6 +3,12 @@
     import {onDestroy, onMount} from 'svelte';
     import type {OptionalValue} from "@/utils/types";
 
+    /*interface Props {
+        avatar?: import('svelte').Snippet;
+    }
+
+    let { avatar }: Props = $props();*/
+
     const navBarClassNameBase = "absolute -translate-x-2/4 left-2/4 h-[var(--navBar-height)] md:h-[inherit] backdrop-blur-2xl bg-white bg-opacity-80 dark:bg-primary-950 dark:bg-opacity-80 shadow-2xl [transition:top_150ms,height_400ms_cubic-bezier(.47,1.64,.41,.8)] overflow-clip";
     const navBarClassNameTop = "rounded-[2.25rem] top-4 w-[calc(100dvw-2rem)] md:w-max";
     const navBarClassNameNormal = "w-full top-0 shadow-[rgba(0,0,0,0.15)]";
@@ -16,22 +22,24 @@
     const mobileMenuItemHeight = 3.5;
 
     // 外部参考元素
-    let navBackground: OptionalValue<HTMLElement>;
-    let navScrollNotice: OptionalValue<HTMLElement>;
+    let navBackground: OptionalValue<HTMLElement> = $state();
+    let navScrollNotice: OptionalValue<HTMLElement> = $state();
 
     // 状态机
-    let navBarClassName = navBarClassNameTop;
-    let mobileMenuOpen = false;
-    let mobileNavHeight = mobileNavBaseHeight;
+    let navBarClassName = $state(navBarClassNameTop);
+    let mobileMenuOpen = $state(false);
+    let mobileNavHeight = $state(mobileNavBaseHeight);
 
     // 为什么要这么麻烦的计算导航栏的高度呢？
     // 因为如果不手动指定高度，浏览器不知道你要过渡到什么高度，就会导致 transition 失效
     // 参考 https://stackoverflow.com/questions/3508605/how-can-i-transition-height-0-to-height-auto-using-css
-    $: if (mobileMenuOpen) {
-        mobileNavHeight = mobileNavBaseHeight + mobileMenuBaseHeight + (mobileMenuItemHeight * SITE_MENU.length);
-    } else {
-        mobileNavHeight = mobileNavBaseHeight;
-    }
+    $effect(() => {
+        if (mobileMenuOpen) {
+            mobileNavHeight = mobileNavBaseHeight + mobileMenuBaseHeight + (mobileMenuItemHeight * SITE_MENU.length);
+        } else {
+            mobileNavHeight = mobileNavBaseHeight;
+        }
+    })
 
     function handleScroll() {
         if (navBackground && window.scrollY > navBackground.getBoundingClientRect().height * (1 / 1.618)) {
@@ -52,9 +60,9 @@
     let menuTimer: any;
     let menuItemTimer: any;
 
-    let menuStep = 1;
-    let menuStepMiddle = 1;
-    let menuItemHidden = true;
+    let menuStep = $state(1);
+    let menuStepMiddle = $state(1);
+    let menuItemHidden = $state(true);
 
     function handleMobileMenuToggle(to = !mobileMenuOpen) {
         mobileMenuOpen = to;
@@ -120,7 +128,7 @@
                         <path fill="currentColor" d="M384 1216q0 80-56 136t-136 56t-136-56t-56-136t56-136t136-56t136 56t56 136m512 123q2 28-17 48q-18 21-47 21H697q-25 0-43-16.5t-20-41.5q-22-229-184.5-391.5T58 774q-25-2-41.5-20T0 711V576q0-29 21-47q17-17 43-17h5q160 13 306 80.5T634 774q114 113 181.5 259t80.5 306m512 2q2 27-18 47q-18 20-46 20h-143q-26 0-44.5-17.5T1137 1348q-12-215-101-408.5t-231.5-336t-336-231.5T60 270q-25-1-42.5-19.5T0 207V64q0-28 20-46Q38 0 64 0h3q262 13 501.5 120T994 414q187 186 294 425.5t120 501.5"/>
                     </svg>
                 </a>
-                <button on:click={() => handleMobileMenuToggle()}
+                <button onclick={() => handleMobileMenuToggle()}
                         aria-label="打开菜单"
                         aria-controls={mobileMenuId}
                         aria-expanded={mobileMenuOpen}
@@ -138,7 +146,7 @@
             <ul class="w-full p-3">
                 {#each SITE_MENU as e}
                     <li class="contents">
-                        <a on:click={() => handleMobileMenuToggle(false)}
+                        <a onclick={() => handleMobileMenuToggle(false)}
                            class="text-xl leading-6 h-14 flex items-center justify-center text-black dark:text-white hover:text-accent-600 dark:hover:text-accent-500 transition-colors duration-200 flex-none"
                            href={e.href} target={e.target}>{e.title}</a>
                     </li>
