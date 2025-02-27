@@ -9,7 +9,7 @@
 
     let { avatar }: Props = $props();*/
 
-    const navBarClassNameBase = "absolute -translate-x-2/4 left-2/4 h-[var(--navBar-height)] md:h-[inherit] backdrop-blur-2xl bg-white bg-opacity-80 dark:bg-primary-950 dark:bg-opacity-80 shadow-2xl [transition:top_150ms,height_400ms_cubic-bezier(.47,1.64,.41,.8)] overflow-clip";
+    const navBarClassNameBase = "absolute -translate-x-2/4 left-2/4 h-[var(--navBar-height)] md:h-[inherit] backdrop-blur-2xl bg-white/80 dark:bg-primary-950 dark:bg-primary-950/80 shadow-2xl [transition:top_150ms,height_400ms_cubic-bezier(.47,1.64,.41,.8)] overflow-clip";
     const navBarClassNameTop = "rounded-[2.25rem] top-4 w-[calc(100dvw-2rem)] md:w-max";
     const navBarClassNameNormal = "w-full top-0 shadow-[rgba(0,0,0,0.15)]";
 
@@ -121,7 +121,7 @@
             </ul>
             <div class="flex flex-none">
                 <a aria-label="订阅本站"
-                   class="w-12 h-12 flex items-center justify-center rounded-full -ms-3 text-black dark:text-white transition-colors bg-white bg-opacity-0 active:bg-opacity-10"
+                   class="w-12 h-12 flex items-center justify-center rounded-full -ms-3 text-black dark:text-white transition-colors bg-white/0 active:bg-white/10"
                    href="./rss.xml"
                    target="_blank">
                     <svg xmlns="http://www.w3.org/2000/svg" width="1408" height="1408" viewBox="0 0 1408 1408" class="w-[1.25rem] h-[1.25rem]">
@@ -132,7 +132,7 @@
                         aria-label="打开菜单"
                         aria-controls={mobileMenuId}
                         aria-expanded={mobileMenuOpen}
-                        class="w-12 h-12 md:hidden flex items-center justify-center rounded-full md:-ms-3 transition-colors bg-white bg-opacity-0 active:bg-opacity-10">
+                        class="w-12 h-12 md:hidden flex items-center justify-center rounded-full md:-ms-3 transition-colors bg-white/0 active:bg-white/10">
                     <span class="block relative w-5 h-5" aria-hidden="true">
                         <span class={`duration-200 block w-5 h-[0.225rem] bg-black dark:bg-white rounded-full burger-bar-1 burger-bar-1--s${menuStep} absolute left-1/2`}></span>
                         <span class={`duration-200 block w-5 h-[0.225rem] bg-black dark:bg-white rounded-full burger-bar-2 burger-bar-2--s${menuStepMiddle} absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2`}></span>

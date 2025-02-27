@@ -50,6 +50,6 @@ export default defineConfig({
 
 ## Tailwind CSS 配置
 
-如果需要修改网站主色和强调色，以及对 Tailwind CSS 进行其它一些定制，则需要修改 `tailwind.config.js` 文件。
+如果需要修改网站主色和强调色，以及对 Tailwind CSS 进行其它一些定制，则需要修改 `src/styles/global.css` 文件中关于 Tailwind CSS 的部分。
 
 主色和强调色的调色盘可以通过 [UI Colors](https://uicolors.app/) 等工具快捷生成。生成完毕后，覆盖 `primary` 和 `accent` 的值即可。

@@ -35,7 +35,7 @@ const heightClassName = largeBanner ? "h-[calc(100svh+8rem)]" : "h-[calc(65lvh+8
 	<div class="flex-auto relative">
 		{largeBanner ? <div id="navScrollNotice"
 						  aria-hidden="true"
-						  class="absolute h-2 w-16 -translate-x-2/4 left-2/4 bottom-4 bg-white bg-opacity-60 rounded-full transition-all"
+						  class="absolute h-2 w-16 -translate-x-2/4 left-2/4 bottom-4 bg-white/60 rounded-full transition-all"
 		></div> : null}
 		<div class={`absolute -translate-x-2/4 left-2/4 ${largeBanner ? "bottom-10" : "bottom-6"} w-full max-w-4xl text-white px-5 md:px-6 [filter:drop-shadow(0_20px_13px_rgb(0_0_0_/_0.1))_drop-shadow(0_8px_5px_rgb(0_0_0_/_0.4))]`}>
 			<h1 class="text-4xl leading-normal font-bold">

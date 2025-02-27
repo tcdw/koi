@@ -1,6 +1,34 @@
 /*! Global CSS */
 
-:root {}
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@theme {
+    --font-sans: ChillRoundF, -apple-system, "Microsoft YaHei", sans-serif;
+
+    --color-primary-50: #f2f7fb;
+    --color-primary-100: #e7f0f8;
+    --color-primary-200: #d3e2f2;
+    --color-primary-300: #b9cfe8;
+    --color-primary-400: #9cb6dd;
+    --color-primary-500: #839dd1;
+    --color-primary-600: #6a7fc1;
+    --color-primary-700: #6374ae;
+    --color-primary-800: #4a5989;
+    --color-primary-900: #414e6e;
+    --color-primary-950: #262c40;
+
+    --color-accent-50: #fffbea;
+    --color-accent-100: #fff2c5;
+    --color-accent-200: #ffe585;
+    --color-accent-300: #ffd146;
+    --color-accent-400: #ffbc1b;
+    --color-accent-500: #ff9800;
+    --color-accent-600: #e27100;
+    --color-accent-700: #bb4c02;
+    --color-accent-800: #983a08;
+    --color-accent-900: #7c300b;
+    --color-accent-950: #481700;
+}
 
 /* Hack: 改善 kbd 间距不够的问题 */
 .prose kbd:has(kbd) {
