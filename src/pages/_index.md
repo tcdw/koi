@@ -41,3 +41,8 @@ const latestPosts = posts.slice(0, BLOG_PAGINATION_SIZE);
 
 - （明亮主题）[Ravimo](https://raviolimavioli.github.io/)，遵循 CC BY 4.0 许可证使用。[原图](https://www.pixiv.net/artworks/103383813)
 - （暗黑主题）[◂Ⓘ▸YAYOI の 夢](https://twitter.com/Yayoi_no_yume)
+
+<details>
+<summary>为什么选择了这么一张暗黑模式的图片？</summary>
+其实我很早就有了关于这款博客主题的脑洞，并且在 2023 年 11 月就把样式做出来了。但是，我一直苦于缺乏美丽的、能够取得授权的图片（虽然之前跟有 OC 的熟人拿了很多他们在 skeb 这种地方约的图，但是自己私下当壁纸用和把图片直接挂在公开的博客首页，性质是很不一样的）。然后梦梦救了我，非常大方的同意我使用他的图片！🥰
+</details>
