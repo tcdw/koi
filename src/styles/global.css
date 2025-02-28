@@ -5,29 +5,29 @@
 @theme {
     --font-sans: ChillRoundF, -apple-system, "Microsoft YaHei", sans-serif;
 
-    --color-primary-50: #f2f7fb;
-    --color-primary-100: #e7f0f8;
-    --color-primary-200: #d3e2f2;
-    --color-primary-300: #b9cfe8;
-    --color-primary-400: #9cb6dd;
-    --color-primary-500: #839dd1;
-    --color-primary-600: #6a7fc1;
-    --color-primary-700: #6374ae;
-    --color-primary-800: #4a5989;
-    --color-primary-900: #414e6e;
-    --color-primary-950: #262c40;
+    --color-primary-50: var(--color-sky-50);
+    --color-primary-100: var(--color-sky-100);
+    --color-primary-200: var(--color-sky-200);
+    --color-primary-300: var(--color-sky-300);
+    --color-primary-400: var(--color-sky-400);
+    --color-primary-500: var(--color-sky-500);
+    --color-primary-600: var(--color-sky-600);
+    --color-primary-700: var(--color-sky-700);
+    --color-primary-800: var(--color-sky-800);
+    --color-primary-900: var(--color-sky-900);
+    --color-primary-950: var(--color-sky-950);
 
-    --color-accent-50: #fffbea;
-    --color-accent-100: #fff2c5;
-    --color-accent-200: #ffe585;
-    --color-accent-300: #ffd146;
-    --color-accent-400: #ffbc1b;
-    --color-accent-500: #ff9800;
-    --color-accent-600: #e27100;
-    --color-accent-700: #bb4c02;
-    --color-accent-800: #983a08;
-    --color-accent-900: #7c300b;
-    --color-accent-950: #481700;
+    --color-accent-50: var(--color-amber-50);
+    --color-accent-100: var(--color-amber-100);
+    --color-accent-200: var(--color-amber-200);
+    --color-accent-300: var(--color-amber-300);
+    --color-accent-400: var(--color-amber-400);
+    --color-accent-500: var(--color-amber-500);
+    --color-accent-600: var(--color-amber-600);
+    --color-accent-700: var(--color-amber-700);
+    --color-accent-800: var(--color-amber-800);
+    --color-accent-900: var(--color-amber-900);
+    --color-accent-950: var(--color-amber-950);
 }
 
 /* Hack: 改善 kbd 间距不够的问题 */
@@ -37,4 +37,15 @@
 
 .prose kbd {
     margin: 0 0.125rem;
+}
+
+.prose a:hover {
+    border-color: var(--color-accent-300);
+    background-color: var(--color-accent-100);
+}
+@media (prefers-color-scheme: dark) {
+    .prose a:hover {
+        border-color: var(--color-accent-700);
+        background-color: var(--color-accent-950);
+    }
 }
