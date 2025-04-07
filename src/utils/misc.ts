@@ -1,6 +1,6 @@
 import type { CollectionEntry } from "astro:content";
 
-type Post = CollectionEntry<'blog'>;
+export type Post = CollectionEntry<'blog'>;
 
 export interface FilterPostsOption {
     filterDraft?: boolean

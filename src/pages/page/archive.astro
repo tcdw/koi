@@ -1,0 +1,61 @@
+---
+import Layout from "../../layouts/BlogPage.astro";
+import MarkdownBody from "../../components/MarkdownBody.astro";
+
+import { filterPosts, type Post } from "../../utils/misc";
+import { getCollection } from "astro:content";
+
+// 归档页面处理流程
+const posts = filterPosts(await getCollection("blog"), {
+    filterDraft: true,
+    filterUnlisted: true,
+});
+const yearMap = new Map<number, Post[]>();
+const yearList: { label: string, value: Post[] }[] = [];
+const amount = posts.length;
+
+posts.sort((a, b) => {
+    // 按时间降序
+    if (a.data.pubDate.getTime() > b.data.pubDate.getTime()) {
+        return -1;
+    }
+    if (a.data.pubDate.getTime() < b.data.pubDate.getTime()) {
+        return 1;
+    }
+    return 0;
+});
+
+posts.forEach((e) => {
+    const year = e.data.pubDate.getFullYear();
+    let handle = yearMap.get(year);
+    if (!handle) {
+        handle = [];
+        yearMap.set(year, handle);
+    }
+    handle.push(e);
+});
+
+yearMap.forEach((v, k) => {
+    yearList.push({
+        label: `${k} 年`,
+        value: v,
+    });
+});
+---
+
+<Layout
+    title="归档"
+    description=""
+>
+    <MarkdownBody class="mt-6">
+        <p>如今，本博客已经有 {amount} 篇文章了呢。</p>
+        {yearList.map((e) => (
+            <h2>{e.label}</h2>
+            <ul>
+                {e.value.map((f) => (
+                    <li><a href={`./post/${f.slug}/`}>{f.data.title}</a></li>
+                ))}
+            </ul>
+        ))}
+    </MarkdownBody>
+</Layout>
