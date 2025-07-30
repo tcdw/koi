@@ -10,7 +10,8 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview --host",
-    "astro": "astro"
+    "astro": "astro",
+    "build:pagefind": "astro build && pagefind --site dist --output-subdir _pagefind"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
@@ -21,12 +22,14 @@
     "@tailwindcss/typography": "^0.5.16",
     "@tailwindcss/vite": "^4.1.11",
     "astro": "^5.12.3",
+    "astro-pagefind": "^1.8.3",
     "markdown-to-text": "^0.1.1",
     "prettier": "^3.6.2",
     "sharp": "^0.33.5",
     "svelte": "^5.37.0",
     "tailwind-merge": "^3.3.1",
     "tailwindcss": "^4.1.11",
+    "twikoo": "^1.6.44",
     "typescript": "^5.8.3"
   },
   "packageManager": "pnpm@10.13.1"

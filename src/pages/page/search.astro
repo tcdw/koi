@@ -1,0 +1,18 @@
+---
+import Search from "astro-pagefind/components/Search";
+import Layout from "../../layouts/BlogPage.astro";
+import MarkdownBody from "../../components/MarkdownBody.astro";
+import * as markdownData from "./_search.md";
+const q = "astro-pagefind"; // 默认搜索关键词
+
+---
+
+<Layout
+    title="搜索"
+    description=""
+>
+    <MarkdownBody class="mt-6">
+        <markdownData.Content />
+        <Search id="search" class="pagefind-ui" uiOptions={{ showImages: false }} />
+    </MarkdownBody>
+</Layout>

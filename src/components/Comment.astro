@@ -1,0 +1,34 @@
+<div id="tcomment"></div>
+
+<script>
+// or `<script data-cfasync="false">` if you are on Cloudflare
+  document.addEventListener("astro:page-load", () => {
+    function loadTwikoo() {
+      const commentsContainer = document.getElementById("tcomment");
+      if (commentsContainer) {
+        const script = document.createElement("script");
+        script.src =
+          "https://cdnjs.cloudflare.com/ajax/libs/twikoo/1.6.32/twikoo.all.min.js";
+        script.defer = true;
+        script.integrity =
+          "sha512-oLwAGOCSlT4rWN1IV2lpvUWOwYPo1xhJyrIhFk6jVa+S7Vi2AKvr0rEuvHZAkVd9p3sJBTMcx2XabwK0HGxFuA==";
+        script.crossOrigin = "anonymous";
+        script.referrerPolicy = "no-referrer";
+
+        script.onload = () => {
+          const initScript = document.createElement("script");
+          initScript.innerHTML = `
+            twikoo.init({
+              envId: "https://your-url",
+              el: "#tcomment",
+              lang: "zh-CN",
+            });
+          `;
+          document.body.appendChild(initScript);
+        };
+        document.body.appendChild(script);
+      }
+    }
+    loadTwikoo();
+  });
+</script>

@@ -2,7 +2,7 @@
 import { type CollectionEntry, getCollection } from 'astro:content';
 import BlogPost from '../../layouts/BlogPost.astro';
 import {filterPosts} from "../../utils/misc";
-
+import Comment from "../../components/Comment.astro";
 export async function getStaticPaths() {
 	const posts = filterPosts(await getCollection('blog'), {
 		filterDraft: true,
@@ -21,4 +21,15 @@ const { Content } = await post.render();
 
 <BlogPost {...post.data}>
 	<Content />
+	<Comment />
+	<script>
+		import twikoo from "twikoo";
+		twikoo({
+		  envId: "https://your-url", // your environment ID or url
+		  el: "#tcomment", // the container ID which will show the comment
+		  lang: "zh-CN", // language for the comment template. for the full list, refer to https://github.com/imaegoo/twikoo/blob/main/src/client/utils/i18n/index.js
+		}).then(() => {
+		  console.log("comment loading success");
+		});
+	  </script>
 </BlogPost>

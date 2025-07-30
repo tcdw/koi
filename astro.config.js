@@ -3,6 +3,8 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import svelte from "@astrojs/svelte";
 import tailwindcss from "@tailwindcss/vite";
+import pagefind from "astro-pagefind";
+import { defineConfig } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
@@ -13,7 +15,7 @@ export default defineConfig({
   // 在根路径下（例如 `https://example.com/`）则填写 `/`
   base: process.env.NODE_ENV === "production" ? "/koi/" : "",
 
-  integrations: [mdx(), sitemap(), svelte()],
+  integrations: [mdx(), sitemap(), svelte(), pagefind()],
 
   markdown: {
     remarkRehype: {

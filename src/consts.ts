@@ -29,6 +29,7 @@ export const SITE_MENU: { title: string, href: string, target: string }[] = [
     { title: "关于", href: "./page/about/", target: "" },
     { title: "归档", href: "./page/archive/", target: "" },
     { title: "链接", href: "./page/links/", target: "" },
+    { title: "搜索", href: "./page/search/", target: "" },
     { title: "外部链接", href: "https://www.example.com", target: "_blank" }
 ]
 
