@@ -14,20 +14,20 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
-    "@astrojs/mdx": "^4.3.1",
+    "@astrojs/mdx": "^4.3.5",
     "@astrojs/rss": "^4.0.12",
-    "@astrojs/sitemap": "^3.4.1",
-    "@astrojs/svelte": "^7.1.0",
+    "@astrojs/sitemap": "^3.5.1",
+    "@astrojs/svelte": "^7.1.1",
     "@tailwindcss/typography": "^0.5.16",
-    "@tailwindcss/vite": "^4.1.11",
-    "astro": "^5.12.3",
+    "@tailwindcss/vite": "^4.1.13",
+    "astro": "^5.13.7",
     "markdown-to-text": "^0.1.1",
     "prettier": "^3.6.2",
     "sharp": "^0.33.5",
-    "svelte": "^5.37.0",
+    "svelte": "^5.38.10",
     "tailwind-merge": "^3.3.1",
-    "tailwindcss": "^4.1.11",
-    "typescript": "^5.8.3"
+    "tailwindcss": "^4.1.13",
+    "typescript": "^5.9.2"
   },
-  "packageManager": "pnpm@10.13.1"
+  "packageManager": "pnpm@10.16.1"
 }
