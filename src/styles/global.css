@@ -30,6 +30,10 @@
     --color-accent-950: var(--color-amber-950);
 }
 
+body {
+    text-autospace: normal;
+}
+
 /* Hack: 改善 kbd 间距不够的问题 */
 .prose kbd:has(kbd) {
     padding: 0.5rem;
