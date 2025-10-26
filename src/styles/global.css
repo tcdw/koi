@@ -34,6 +34,16 @@ body {
     text-autospace: normal;
 }
 
+@media (width >= 48rem) {
+    .koi-squircle-md {
+        border-radius: 1.5rem;
+        @supports (corner-shape: squircle) {
+            border-radius: 3rem;
+            corner-shape: squircle;
+        }
+    }
+}
+
 /* Hack: 改善 kbd 间距不够的问题 */
 .prose kbd:has(kbd) {
     padding: 0.5rem;
