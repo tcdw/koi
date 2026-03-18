@@ -53,7 +53,7 @@ yearMap.forEach((v, k) => {
             <h2>{e.label}</h2>
             <ul>
                 {e.value.map((f) => (
-                    <li><a href={`./post/${f.slug}/`}>{f.data.title}</a></li>
+                    <li><a href={`./post/${f.id}/`}>{f.data.title}</a></li>
                 ))}
             </ul>
         ))}

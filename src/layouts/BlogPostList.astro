@@ -32,7 +32,7 @@ const { data, currentPage, lastPage, largeBanner = false } = Astro.props;
                 return (
                         <ArticleListItem
                                 title={post.data.title}
-                                url={`./post/${post.slug}/`}
+                                url={`./post/${post.id}/`}
                                 date={post.data.pubDate}>
                             {excerpt}
                         </ArticleListItem>
