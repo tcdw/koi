@@ -1,6 +1,6 @@
 # Astro Koi Blog Template
 
-Koi (こい, 恋) 是由 [tcdw](https://www.tcdw.net) 为他不存在的女儿制作的 [Astro](https://astro.build/) 静态博客模板。
+Koi (こい, 恋) 是由 [tcdw](https://www.tcdw.net) 为他（曾经）不存在的赛博女儿制作的 [Astro](https://astro.build/) 静态博客模板。
 
 ![博客截图](./.github/assets/Astro%20Koi.jpeg)
 
