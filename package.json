@@ -13,22 +13,22 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.10",
-    "@astrojs/markdown-remark": "^7.2.2",
-    "@astrojs/mdx": "^7.0.5",
+    "@astrojs/check": "^0.9.11",
+    "@astrojs/markdown-remark": "^7.3.3",
+    "@astrojs/mdx": "^8.1.0",
     "@astrojs/rss": "^4.0.19",
-    "@astrojs/sitemap": "^3.7.3",
-    "@astrojs/svelte": "^9.0.1",
+    "@astrojs/sitemap": "^3.7.4",
+    "@astrojs/svelte": "^9.1.0",
     "@tailwindcss/typography": "^0.5.20",
     "@tailwindcss/vite": "^4.3.3",
-    "astro": "^7.1.6",
+    "astro": "^7.4.1",
     "markdown-to-text": "^0.1.1",
-    "prettier": "^3.9.6",
-    "sharp": "^0.35.3",
-    "svelte": "^5.56.8",
-    "tailwind-merge": "^3.6.0",
+    "prettier": "^3.9.10",
+    "sharp": "^0.35.5",
+    "svelte": "^5.57.2",
+    "tailwind-merge": "^3.7.0",
     "tailwindcss": "^4.3.3",
     "typescript": "^6.0.3"
   },
-  "packageManager": "pnpm@11.18.0"
+  "packageManager": "pnpm@12.14.0"
 }

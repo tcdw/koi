@@ -1,0 +1,4 @@
+interface:
+  display_name: "Koi 依赖维护"
+  short_description: "检查并升级 Koi 依赖、Node 与 CI，修复兼容性并完成验证"
+  default_prompt: "使用 $upgrade-koi-dependencies 完成 Koi 的日常依赖升级与兼容性修复，暂不升级 TypeScript 7。"
